@@ -103,6 +103,15 @@ services:
     depends_on:
       - ausweisapp
 
+  apache-proxy:
+    build:
+      context: $PWD/apache-proxy
+      dockerfile: Dockerfile.apache-rproxy
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+
 volumes:
   datadir:
   cache:
