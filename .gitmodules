@@ -1,0 +1,9 @@
+[submodule "funke-wallet-frontend"]
+	path = funke-wallet-frontend
+	url = git@github.com:gunet/funke-wallet-frontend.git
+[submodule "funke-wallet-backend-server"]
+	path = funke-wallet-backend-server
+	url = git@github.com:gunet/funke-wallet-backend-server.git
+[submodule "ausweissapp-client"]
+	path = ausweissapp-client
+	url = git@github.com:gunet/ausweissapp-client.git
