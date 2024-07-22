@@ -10,7 +10,8 @@ RUN rm -f /var/log/apache2/*.log && \
     ln -s /dev/stdout /var/log/apache2/other_vhosts_access.log && \
     ln -s /dev/stderr /var/log/apache2/error.log
 
-RUN a2enmod -q socache_shmcb ssl proxy proxy_http proxy_uwsgi proxy_wstunnel rewrite
+RUN a2enmod -q socache_shmcb ssl proxy proxy_http proxy_uwsgi proxy_wstunnel rewrite headers
+
 #    a2ensite -q default-ssl
 RUN a2disconf charset localized-error-pages serve-cgi-bin && \
     a2dismod -f access_compat autoindex deflate negotiation status
