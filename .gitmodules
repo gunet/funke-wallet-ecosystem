@@ -7,3 +7,6 @@
 [submodule "ausweissapp-client"]
 	path = ausweissapp-client
 	url = git@github.com:gunet/ausweissapp-client.git
+[submodule "funke-wallet-enterprise"]
+	path = funke-wallet-enterprise
+	url = git@github.com:gunet/funke-wallet-enterprise.git
