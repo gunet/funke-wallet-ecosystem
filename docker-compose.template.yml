@@ -109,8 +109,44 @@ services:
       dockerfile: Dockerfile.apache-rproxy
     restart: always
     ports:
-      - 80:80
-      - 443:443
+      - 8443:443
+
+  wallet-enterprise-acme-verifier:
+    container_name: wallet-enterprise-acme-verifier
+    hostname: wallet-enterprise-acme-verifier
+    build:
+      context: $PWD/funke-wallet-enterprise
+      dockerfile: development.Dockerfile
+      secrets:
+        - npmrc
+    image: wallet-enterprise:dev-verifier
+    restart: on-failure
+    ports:
+      - 8005:8005
+    depends_on:
+      wallet-db:
+        condition: service_healthy
+    volumes:
+      - ./funke-wallet-enterprise:/app:rw
+      - ./wallet-enterprise-configurations/acme-verifier/config/config.development.ts:/app/config/config.development.ts:rw
+      - ./wallet-enterprise-configurations/acme-verifier/keys:/app/keys:rw
+      - ./wallet-enterprise-configurations/acme-verifier/src/configuration:/app/src/configuration:rw
+      - ./wallet-enterprise-configurations/acme-verifier/public/styles/styles.css:/app/public/styles/styles.css:rw
+      - ./wallet-enterprise-configurations/acme-verifier/views/index.pug:/app/views/index.pug:rw
+      - ./wallet-enterprise-configurations/acme-verifier/views/header.pug:/app/views/header.pug:rw
+      - ./wallet-enterprise-configurations/acme-verifier/views/verifier/public_definitions.pug:/app/views/verifier/public_definitions.pug:rw
+      - ./wallet-enterprise-configurations/acme-verifier/views/verifier/QR.pug:/app/views/verifier/QR.pug:rw
+      - ./wallet-enterprise-configurations/acme-verifier/views/verifier/success.pug:/app/views/verifier/success.pug:rw
+      - ./wallet-enterprise-configurations/acme-verifier/public/images:/app/public/images:rw
+      - ./.vscode/:/app/.vscode:rw
+      - type: tmpfs
+        target: /app/dist
+        tmpfs:
+          mode: 01777
+    deploy:
+      resources:
+          limits:
+            memory: 1G
 
 volumes:
   datadir:
