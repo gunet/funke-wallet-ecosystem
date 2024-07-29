@@ -100,6 +100,8 @@ services:
       dockerfile: development.Dockerfile
     volumes:
       - ./ausweissapp-client:/app
+    ports:
+      - 32772:32772
     depends_on:
       - ausweisapp
 
