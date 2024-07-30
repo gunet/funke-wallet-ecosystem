@@ -1,9 +1,9 @@
 # Builder stage
-FROM ghcr.io/wwwallet/wallet-enterprise:base AS builder
+FROM ghcr.io/gunet/funke-wallet-enterprise:base AS builder
 WORKDIR /app
 
 
-COPY wallet-enterprise/ .
+COPY funke-wallet-enterprise/ .
 RUN rm -rf /app/src/configuration/
 COPY ./wallet-enterprise-configurations/acme-verifier/src/configuration/ /app/src/configuration/
 COPY ./wallet-enterprise-configurations/acme-verifier/views/index.pug /app/views/index.pug
