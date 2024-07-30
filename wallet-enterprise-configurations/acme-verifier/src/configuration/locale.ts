@@ -17,11 +17,11 @@ const locale = {
 		},
 		index: {
 			header: "ACME Verifier",
-			phrase: "I want to apply for a job",
+			phrase: "I want to share my credentials",
 			proceed: "Proceed",
 			heading: "ACME Verifier",
-			paragraph: "This website is the recruitment platform of ACME corporation which is used for submiting job applications by transferring digital credentials in verifiable credential format instead of CVs. To apply for a position, candidates are required to have a digital wallet which will be used for the presentation of the required credentials by the corresponding job position.",
-			demo_text: "This website is only used for demonstration purposes"
+			paragraph: "Welcome to our demo platform, designed to showcase the presentation of verifiable credentials using OpenID for Verifiable Presentations. This site serves as a hands-on tool for users to experience how they can securely present and verify their credentials in a seamless and efficient manner.",
+			demo_text: "This platform is developed for the SPRIND FUNKE “EUDI WALLET PROTOTYPES” project. "
 		},
 		login: {
 			title: "Login",
