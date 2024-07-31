@@ -41,6 +41,7 @@ let useOpenIdUrl = false;
 let daemonMode = false;
 let forceUpdateConfigs = false;
 let useComposeTemplate = false;
+let useLocalAusweisApp = false;
 const walletClientOrigin = "http://localhost:3000";
 const walletClientUrl = `${walletClientOrigin}/cb`;
 
@@ -51,6 +52,8 @@ function help() {
 	console.log("   -d                Start the ecosystem in daemonized mode");
 	console.log("   -c                Force update of the configurations to the defaults for the development environment");
 	console.log("   -t                Force the usage of the docker-compose.template.yml");
+	console.log("   --local-ausweis   Use local ausweis docker container");
+
 	console.log("");
 	console.log("Example:");
 	console.log("node ecosystem.js up -m -c");
@@ -78,6 +81,10 @@ for (const arg of args) {
 		console.log("Forcing update in configs");
 	}
 
+	if (arg === '--local-ausweis') {
+		useLocalAusweisApp = true;
+		console.log("Using local ausweis client docker container");
+	}
 
 	if (arg === '--help') {
 		help();
@@ -141,7 +148,7 @@ try {
 if (action === "down") {
 	console.log("Performing 'docker compose down'");
 	// Implement the logic to stop Docker services here
-	execSync(`${dockerComposeCommand} down`, { stdio: 'inherit' });
+	execSync(`${dockerComposeCommand} ${useLocalAusweisApp ? '--profile ausweis' : ""}  down`, { stdio: 'inherit' });
 	process.exit();
 }
 
@@ -201,8 +208,8 @@ if (action !== 'up') {
 
 if (daemonMode === false) {
 	console.log("Performing 'docker compose up'");
-	execSync(`${dockerComposeCommand} up --build`, { stdio: 'inherit' });
+	execSync(`${dockerComposeCommand} ${useLocalAusweisApp ? '--profile ausweis' : ""} up --build`, { stdio: 'inherit' });
 } else {
 	console.log("Performing 'docker compose up -d'");
-	execSync(`${dockerComposeCommand} up --build -d`, { stdio: 'inherit' });
+	execSync(`${dockerComposeCommand} ${useLocalAusweisApp ? '--profile ausweis' : ""} up --build -d`, { stdio: 'inherit' });
 }
