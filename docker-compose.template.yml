@@ -91,8 +91,6 @@ services:
 
   ausweisapp:
     image: governikus/ausweisapp2
-    ports:
-      - 127.0.0.1:24727:24727
     profiles:
       - ausweis
 
@@ -103,7 +101,7 @@ services:
     volumes:
       - ./ausweissapp-client:/app
     ports:
-      - 32772:32772
+      - 24727:24727
     depends_on:
       - ausweisapp
     profiles:
