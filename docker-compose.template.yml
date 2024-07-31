@@ -93,6 +93,8 @@ services:
     image: governikus/ausweisapp2
     ports:
       - 127.0.0.1:24727:24727
+    profiles:
+      - ausweis
 
   ausweisapp-client:
     build:
@@ -104,6 +106,8 @@ services:
       - 32772:32772
     depends_on:
       - ausweisapp
+    profiles:
+      - ausweis
 
   apache-proxy:
     build:
