@@ -1,1 +1,2 @@
 CREATE DATABASE wallet;
+CREATE DATABASE verifier;
