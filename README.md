@@ -11,6 +11,7 @@ git clone --recurse-submodules git@github.com:gunet/funke-wallet-ecosystem.git
 - ausweissapp-client --> master
 - funke-wallet-backend-server --> funke
 - funke-wallet-frontend --> funke
+- funke-wallet-enterprise --> funke
 
 
 # Configure /etc/hosts
