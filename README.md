@@ -58,4 +58,34 @@ Note: Make sure that the Ausweis desktop app is not working
 node ecosystem.js up --local-ausweis
 ```
 
+
 You can skip the --local-ausweis parameter in case you want to use the Ausweis Desktop as your eID Client
+
+
+# Wallet Frontend Documentation
+
+#### OpenID4VCIHelper
+Provides functions to fetch metadata of a specific issuer
+
+#### OpenID4VCIClient
+Implements the OpenID4VCI protocol for the client
+generateNonceProof parameter gives the freedom to the implementor to select the way to generate the signature. In our case, the local keystore is used.
+
+#### OpenID4VCIClientFactory
+Creates instances OpenID4VCIClient instances passing the corresponding client configuration
+
+#### HttpProxy
+Delegates all http calls to the wallet backend server to bypass the CORS errors that occur when communicating with authorization servers
+
+#### OpenID4VCIClientStateRepository
+Exposes a storage interface to the OpenID4VCIClient for temporary storage operations
+
+![image](https://github.com/user-attachments/assets/63727113-83e9-467b-9890-70970a78d15f)
+
+
+---
+
+The **useCommunicationProtocols()** react hook is used to make the above instances accessible by the rest of the code wallet application.
+
+Note: The **generateOpenid4vciProof()** keystore function is passed into a callback to the **OpenID4VCIClient** instances in order to generate proofs for the Credential Endpoint in the Credential Issuance flow.
+
