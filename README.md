@@ -13,7 +13,14 @@ git clone --recurse-submodules git@github.com:gunet/funke-wallet-ecosystem.git
 - funke-wallet-frontend --> funke
 
 
+# Configure /etc/hosts
+
+```
+127.0.0.1	secure.wwwallet.local
+```
+
 # Wallet frontend .env configuration
+
 
 ```
 HOST='0.0.0.0'
