@@ -31,6 +31,11 @@ const funkePidSdJwtDescriptor =	{
 				"filter": {}
 			},
 			{
+				"name": "Age Over 18",
+				"path": ['$.age_equal_or_over.18'],
+				"filter": {}
+			},
+			{
 				"name": "Issuing Authority",
 				"path": ['$.issuing_authority'],
 				"filter": {}
@@ -48,7 +53,7 @@ const funkePidSdJwtDescriptor =	{
 const funkePidSdJwtPresentationDefinition = {
 	"id": "FunkePID",
 	"title": "Funke PID",
-	"description": "Required Fields: Given Name, Family Name, Birth Date, Issuing Authority",
+	"description": "Required Fields: Given Name, Family Name, Age Over 18, Birth Date, Issuing Authority",
 	"format": { "vc+sd-jwt": { alg: [ 'ES256' ] },jwt_vc_json: { alg: [ 'ES256' ] }, jwt_vp: { alg: [ 'ES256' ] } },
 	"input_descriptors": [
 		funkePidSdJwtDescriptor
@@ -58,7 +63,7 @@ const funkePidSdJwtPresentationDefinition = {
 const customVerifiableIdSdJwtPresentationDefinition = {
 	"id": "CustomFunkePID",
 	"title": "Custom Funke PID",
-	"description": "Selectable Fields: Given Name, Family Name, Birth Date, Issuing Authority",
+	"description": "Selectable Fields: Given Name, Family Name, Age Over 18, Birth Date, Issuing Authority",
 	"selectable": true,
 	"format": { "vc+sd-jwt": { alg: ['ES256'] }, jwt_vc_json: { alg: ['ES256'] }, jwt_vp: { alg: ['ES256'] } },
 	"input_descriptors": [
