@@ -18,9 +18,10 @@ RUN --mount=type=secret,id=npmrc,required=true,target=./.npmrc,uid=1000 \
     yarn cache clean && yarn install && yarn build
 
 # Production stage
-FROM node:16-bullseye-slim AS production
+FROM node:20-bullseye-slim AS production
 WORKDIR /app
 
+COPY --from=builder /app/auth0-mdl-v0.3.0-wwwallet-build-1722929256.tgz .
 COPY --from=builder /app/package.json .
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/public ./public
