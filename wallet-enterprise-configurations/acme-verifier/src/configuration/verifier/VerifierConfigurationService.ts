@@ -112,7 +112,7 @@ const mdocPIDPresentationDefinition = {
 						"intent_to_retain": false
 					},
 					{
-						"name": "Age is over 18",
+						"name": "Age over 18",
 						"path": [
 							"$['eu.europa.ec.eudi.pid.1']['age_over_18']"
 						],
