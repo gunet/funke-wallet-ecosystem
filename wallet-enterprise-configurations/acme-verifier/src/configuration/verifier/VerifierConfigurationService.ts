@@ -54,7 +54,7 @@ const funkePidSdJwtDescriptor = {
 const funkePidSdJwtPresentationDefinition = {
 	"id": "FunkePID",
 	"title": "Funke PID",
-	"description": "Required Fields: Given Name, Family Name, Age Over 18, Birth Date, Issuing Authority",
+	"description": "Required Fields: Given Name, Family Name, Age Over 18, BirthDate, Issuing Authority",
 	"format": { "vc+sd-jwt": { alg: [ 'ES256' ] },jwt_vc_json: { alg: [ 'ES256' ] }, jwt_vp: { alg: [ 'ES256' ] } },
 	"input_descriptors": [
 		funkePidSdJwtDescriptor
@@ -64,7 +64,7 @@ const funkePidSdJwtPresentationDefinition = {
 const customVerifiableIdSdJwtPresentationDefinition = {
 	"id": "CustomFunkePID",
 	"title": "Custom Funke PID",
-	"description": "Selectable Fields: Given Name, Family Name, Age Over 18, Birth Date, Issuing Authority",
+	"description": "Selectable Fields: Given Name, Family Name, Age Over 18, BirthDate, Issuing Authority",
 	"selectable": true,
 	"format": { "vc+sd-jwt": { alg: ['ES256'] }, jwt_vc_json: { alg: ['ES256'] }, jwt_vp: { alg: ['ES256'] } },
 	"input_descriptors": [
@@ -76,7 +76,7 @@ const customVerifiableIdSdJwtPresentationDefinition = {
 const mdocPIDPresentationDefinition = {
 	"id": "MdocPID",
 	"title": "MDOC PID",
-	"description": "Present the MDOC PID credential",
+	"description": "Required Fields: Given Name, Family Name, Age Over 18, BirthDate",
 	"input_descriptors": [
 		{
 			"id": "eu.europa.ec.eudi.pid.1",
