@@ -37,6 +37,11 @@ const funkePidSdJwtDescriptor = {
 				"filter": {}
 			},
 			{
+				"name": "Issuing Country",
+				"path": ['$.issuing_country'],
+				"filter": {}
+			},
+			{
 				"name": "Issuing Authority",
 				"path": ['$.issuing_authority'],
 				"filter": {}
