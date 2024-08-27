@@ -8,7 +8,7 @@ block layout-content
 
           h1 Scan the QR code
 
-          img(src=authorizationRequestQR width=200 height=200)
+          img(src=authorizationRequestQR id="qr-image" width=200 height=200)
 					
           - const modifiedURL = authorizationRequestURL.replace("openid4vp://cb", wwwalletURL)
           button.Btn.Medium.openwithwalletbutton(type="button" onclick=`window.location.href = '${modifiedURL}';`) Open with wwWallet
